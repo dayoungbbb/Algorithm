@@ -60,7 +60,7 @@ int main()
 
 		maxNum = 0;
 		
-		bruteforce(input, 0);
+		bruteforce(input, 0); // bruteforce긴 하지만 중복이 많기 때문에..depth체크도 해주는 듯
 		
 		printf("#%d %d\n", t, maxNum);
 	}
