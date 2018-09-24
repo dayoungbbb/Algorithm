@@ -12,10 +12,10 @@ void bruteforce(int depth, int before) {
 	visited[before] = true;
 	for (int j = 0; j < m; j++) {
 		if (v[j].first == before && !visited[v[j].second]){
-				bruteforce(depth + 1, v[j].second);
+			bruteforce(depth + 1, v[j].second);
 		}
 		else if (v[j].second == before && !visited[v[j].first]) {
-				bruteforce(depth + 1, v[j].first);
+			bruteforce(depth + 1, v[j].first);
 		}
 	}
 	ret = ret > depth+1 ? ret : depth+1;
