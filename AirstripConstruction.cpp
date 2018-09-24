@@ -3,8 +3,8 @@ using namespace std;
 int n, x, map[21][21], ret, arr[21]; 
 enum DIRECTION { FORWARD, UP, DOWN };
 typedef struct {
-	int num; // ¼ıÀÚ
-	int cnt; // °³¼ö
+	int num; // ìˆ«ì
+	int cnt; // ê°œìˆ˜
 	DIRECTION dir;
 }STAIR;
 
@@ -12,12 +12,12 @@ void solv() {
 	STAIR now;
 	now.cnt = 1; now.num = arr[0]; now.dir = FORWARD;
 	for (int i = 1; i < n; i++) {
-		if (arr[i] == now.num) { // °ªÀÌ °°À» ¶§
+		if (arr[i] == now.num) { // ê°’ì´ ê°™ì„ ë•Œ
 			now.cnt++;
 			if (now.dir == DOWN && i == n - 1 && now.cnt < x)
 				return;
 		}
-		else if (arr[i] == (now.num+1)) { //1Ä­ À§·Î ¿Ã¶ó°¥ ¶§
+		else if (arr[i] == (now.num+1)) { //1ì¹¸ ìœ„ë¡œ ì˜¬ë¼ê°ˆ ë•Œ
 			if (now.cnt < x)
 				return;
 			if (now.dir == DOWN && now.cnt - x < x)
@@ -25,7 +25,7 @@ void solv() {
 
 			now.dir = UP; now.num++; now.cnt = 1;
 		}
-		else if (arr[i] == (now.num-1)) { //1Ä­ ³»·Á°¥ ¶§
+		else if (arr[i] == (now.num-1)) { //1ì¹¸ ë‚´ë ¤ê°ˆ ë•Œ
 			if (now.dir == DOWN && now.cnt < x)
 				return;
 			if (i == n - 1)
@@ -64,7 +64,6 @@ int main()
 			solv();
 		}
 
-		
 		cout << "#" << t << " " << ret << endl;
 		printf("\n");
 	}
