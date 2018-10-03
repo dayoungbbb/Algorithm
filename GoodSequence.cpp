@@ -4,7 +4,6 @@ using namespace std;
 int arr[3] = { 1, 2, 3 }, n;
 vector<int> v;
 int bruteforce(int depth, int before) {
-
 	for (int i = 2; i <= (v.size() / 2); i++) {
 		for (int j = v.size() - i; j >= i; j--) {
 			int cnt = 0;
@@ -17,13 +16,11 @@ int bruteforce(int depth, int before) {
 		}
 	}
 
-
 	if (depth == n) {
 		for (int k = 0; k < v.size(); k++)
 			cout << v[k];
 		return 0;
 	}
-
 
 	int ret;
 	for (int i = 0; i < 3; i++)
