@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -13,13 +12,6 @@ void bruteforce(int depth) {
 			sum += abs(v[i] - v[i + 1]);
 		}
 		ret = ret > sum ? ret : sum;
-		/*if (sum > ret) {
-			cout << "sum : " << sum << ' ';
-			for (int j = 0; j < n; j++)
-				cout << v[j] << ' ';
-			cout << '\n';
-			ret = sum;
-		}*/
 	}
 	for (int i = 0; i < n; i++) {
 		if (!visited[i]) {
@@ -34,10 +26,8 @@ void bruteforce(int depth) {
 int main()
 {
 	cin >> n;
-
-	for (int i = 0; i < n; i++)
-		cin >> arr[i];
+	for (int i = 0; i < n; i++) cin >> arr[i];
 	ret = 0;
 	bruteforce(0);
-	printf("%d", ret);
+	cout << ret;
 }
