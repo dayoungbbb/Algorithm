@@ -1,9 +1,8 @@
 #include <iostream>
 using namespace std;
 #define MAX_N 50
-int n, m, map[MAX_N][MAX_N], cnt, visited[MAX_N][MAX_N]; // 좌표(r,c), 바라보는 방향 d 0북1동2남3서
+int n, m, map[MAX_N][MAX_N], cnt; // 좌표(r,c), 바라보는 방향 d 0북1동2남3서
 int dir[4][2] = { {0, -1}, {-1, 0}, {0, 1}, {1, 0} };// 서북동남
-
 void dfs(int r, int c, int d)
 {
 	map[r][c] = 2;
