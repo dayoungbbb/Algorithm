@@ -22,14 +22,14 @@ int main()
 		for (int j = 0; j < 2; j++) for (int i = 1; i <= m; i++) cin >> moveInfo[j][i];
 		memset(map, 0, sizeof(map));
 		for (int i = 1; i <= a; i++) {
-			cin >> ap[i].x >> ap[i].y >> ap[i].c >> ap[i].p; // 여기까지 입력
+			cin >> ap[i].y >> ap[i].x >> ap[i].c >> ap[i].p; // 여기까지 입력
 
-			bool visited[MAX_N][MAX_N];
-			for (int j = 0; j<=ap[j].c; j++)
+			memset(visited, false, sizeof(visited));
+			for (int j = 0; j<=ap[i].c; j++)
 				for (int d = 0; d<4; d++)
-					for (int k = 0; k <= i; k++) {
-						int dx = ap[i].x + dir[d][0] * (k); int dy = ap[i].y + dir[d][1] * (i - k);
-						if (!visited[dx][dy]) {
+					for (int k = 0; k <= j; k++) {
+						int dx = ap[i].x + dir[d][0] * (k); int dy = ap[i].y + dir[d][1] * (j - k);
+						if (!visited[dx][dy] && dx>=1 && dy >=1 && dx<=10 && dy<=10 ) {
 							visited[dx][dy] = true;
 							map[dx][dy] = map[dx][dy] * 10 + i; 
 						}
@@ -57,6 +57,7 @@ int main()
 					else
 						MAX = MAX > ap[v[0][i]].p + ap[v[1][j]].p ? MAX : ap[v[0][i]].p + ap[v[1][j]].p;
 				}
+			v->clear();
 			ret += MAX;
 		}
 
